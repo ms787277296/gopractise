@@ -14,4 +14,7 @@ func main() {
 	answer := server.Add(1, 2)
 	glog.Infof("result is %d", answer)
 
+	answer = server.Sub(1, 2)
+	glog.Infof("result is %d", answer)
+
 }
