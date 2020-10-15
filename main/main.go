@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	"gopractise/server"
+	"ms/gopractise/server"
 
 	"github.com/golang/glog"
 )
@@ -11,10 +11,13 @@ func main() {
 	flag.Set("logtostderr", "true")
 	flag.Parse()
 
-	answer := server.Add(1, 2)
-	glog.Infof("result is %d", answer)
+	// err := server.JsonTransform()
+	// if err != nil {
+	// 	glog.Fatal(err)
+	// }
 
-	answer = server.Sub(1, 2)
-	glog.Infof("result is %d", answer)
-
+	err := server.ProtobufPractise()
+	if err != nil {
+		glog.Fatal(err)
+	}
 }
