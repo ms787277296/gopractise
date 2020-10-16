@@ -4,7 +4,7 @@ import (
 	"flag"
 	"ms/gopractise/server"
 
-	"github.com/golang/glog"
+	_ "github.com/golang/glog"
 )
 
 func main() {
@@ -16,8 +16,10 @@ func main() {
 	// 	glog.Fatal(err)
 	// }
 
-	err := server.ProtobufPractise()
-	if err != nil {
-		glog.Fatal(err)
-	}
+	// err := server.ProtobufPractise()
+	// if err != nil {
+	// 	glog.Fatal(err)
+	// }
+
+	server.PrintNum()
 }
