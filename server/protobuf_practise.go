@@ -30,7 +30,13 @@ func ProtobufPractise() (err error) {
 		return
 	}
 
-	fmt.Print(data)
+	// fmt.Print(data)
+
+	var contact2 contact_pb.ContactBook
+
+	err = proto.Unmarshal(data, &contact2)
+
+	fmt.Printf("proto is %#v\n", &contact2)
 
 	return
 }
