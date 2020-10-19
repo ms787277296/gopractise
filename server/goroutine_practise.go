@@ -33,6 +33,20 @@ func Consume(channel chan int){
 	}
 }
 
+func server1(channel chan int){
+	time.Sleep(6*time.Second)
+	channel <- 1
+
+	return
+}
+
+func server2(channel chan int){
+	time.Sleep(3*time.Second)
+	channel <- 2
+	
+	return
+}
+
 func PrintNum(){
 	// wg.Add(1)
 	// go PrintString()
@@ -42,15 +56,18 @@ func PrintNum(){
 	// }
 	// wg.Wait()
 
-	channel := make (chan int,10)
-
-	go Consume(channel)
-
-	time.Sleep(5*time.Second)
-
-	channel <- 1
-
-	channel <- 2
+	channel1 := make (chan int,10)
+	channel2 := make (chan int,10)
+	
+	go server1(channel1)
+	go server2(channel2)
+	
+	select{
+	case s1 := <- channel1:
+		glog.Info(s1)
+	case s2 := <- channel2:
+		glog.Info(s2)
+	}
 
 	//close(channel)
 
