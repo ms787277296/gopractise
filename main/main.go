@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"ms/gopractise/server"
+	_ "ms/gopractise/server"
 
 	"github.com/golang/glog"
 )
@@ -21,10 +22,17 @@ func main() {
 	// 	glog.Fatal(err)
 	// }
 
-	server.PrintNum()
+	// server.PrintNum()
 
-	err :=server.TCPServer()
+	// err :=server.TCPServer()
+	// if err != nil {
+	// 	glog.Fatal(err)
+	// }
+	//var buf []byte
+
+	err := server.WritePractise()
 	if err != nil {
 		glog.Fatal(err)
 	}
+
 }
